@@ -37,10 +37,22 @@ local plugins = {
     opts = {
       ensure_installed = {
         "lua-language-server",
-        "solargraph",
-        "tsserver",
+        "typescript-language-server",
+        -- Install solargraph through your Gemfile better.
+        -- "solargraph",
       }
     }
+  },
+  {
+    "tpope/vim-rails",
+    ft = "ruby"
+  },
+  {
+    "stevearc/conform.nvim",
+    -- TODO: use the suggested config in: https://github.com/stevearc/conform.nvim/blob/master/doc/recipes.md#lazy-loading-with-lazynvim
+    conf = function()
+      require "custom.configs.conform"
+    end,
   }
 }
 

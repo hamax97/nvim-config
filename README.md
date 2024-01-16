@@ -10,3 +10,10 @@ git clone https://github.com/hamax97/nvim-config.git ~/.config/nvim/lua/custom
 
 You might need to setup NvChad first. [Read the official docs for that](https://nvchad.com/docs/quickstart/install).
 
+For a new distribution other than NvChad, remember to create a new branch with the name of this distrubtion. For example:
+
+```
+git checkout main
+git checkout -b lunarvim
+```
+
