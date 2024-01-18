@@ -1,9 +1,5 @@
 local plugins = {
   {
-    "christoomey/vim-tmux-navigator",
-    lazy = false,
-  },
-  {
     "neovim/nvim-lspconfig",
     config = function()
       require "plugins.configs.lspconfig"
@@ -29,6 +25,10 @@ local plugins = {
         "markdown",
         "sql",
         "yaml",
+      },
+      -- available after installing: RRethy/nvim-treesitter-endwise
+      endwise = {
+        enable = true
       }
     }
   },
@@ -39,6 +39,8 @@ local plugins = {
         "lua-language-server",
         "typescript-language-server",
         -- Install solargraph through your Gemfile better.
+        -- Also install solargprah-rails gem and reference it in .solargraph.yml,
+        -- plus generate the yard docs for it work. See the instructions: https://github.com/iftheshoefritz/solargraph-rails
         -- "solargraph",
       }
     }
@@ -48,11 +50,44 @@ local plugins = {
     ft = "ruby"
   },
   {
+    -- Reference: https://github.com/stevearc/conform.nvim/blob/master/doc/recipes.md#lazy-loading-with-lazynvim
     "stevearc/conform.nvim",
-    -- TODO: use the suggested config in: https://github.com/stevearc/conform.nvim/blob/master/doc/recipes.md#lazy-loading-with-lazynvim
-    conf = function()
-      require "custom.configs.conform"
-    end,
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
+    -- Everything in opts will be passed to setup()
+    opts = {
+      -- Define your formatters
+      formatters_by_ft = {
+        ruby = { "rubocop" },
+        lua = { "stylua" },
+
+        javascript = { "prettier" },
+        css = { "prettier" },
+        html = { "prettier" },
+
+        sh = { "shfmt" },
+      },
+      -- Customize formatters
+      formatters = {
+        rubocop = {
+          prepend_args = { "-a" }
+        }
+      },
+    },
+  },
+  {
+    "RRethy/nvim-treesitter-endwise",
+    event = "InsertEnter"
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = {
+      pickers = {
+        find_files = {
+          hidden = true
+        }
+      }
+    }
   }
 }
 
