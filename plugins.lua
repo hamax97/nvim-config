@@ -55,25 +55,7 @@ local plugins = {
     event = { "BufWritePre" },
     cmd = { "ConformInfo" },
     -- Everything in opts will be passed to setup()
-    opts = {
-      -- Define your formatters
-      formatters_by_ft = {
-        ruby = { "rubocop" },
-        lua = { "stylua" },
-
-        javascript = { "prettier" },
-        css = { "prettier" },
-        html = { "prettier" },
-
-        sh = { "shfmt" },
-      },
-      -- Customize formatters
-      formatters = {
-        rubocop = {
-          prepend_args = { "-a" }
-        }
-      },
-    },
+    opts = require "custom.configs.conform"
   },
   {
     "RRethy/nvim-treesitter-endwise",
@@ -88,7 +70,29 @@ local plugins = {
         }
       }
     }
-  }
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    opts = {
+      completion = {
+        autocomplete = false,
+      },
+      mapping = require "custom.configs.cmp-mappings"
+    }
+  },
+  {
+    -- TODO: make the commands for this mappings; can this be used to run in a terminal?
+    "klen/nvim-test",
+    ft = { "ruby" },
+    opts = {}
+  },
+  -- TODO: install akinsho/toggleterm.nvim and try to use it. Do the terms keep the sizing when toggled?
+  -- TODO: disable nvterm? can I use the same keymaps?
+  -- {
+  --   "akinsho/toggleterm.nvim",
+  --   version = "*",
+  --   opts = {}
+  -- }
 }
 
 return plugins

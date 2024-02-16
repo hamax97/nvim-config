@@ -18,3 +18,10 @@ for server_name, server_config in pairs(servers) do
   lspconfig[server_name].setup(final_config)
 end
 
+vim.diagnostic.config({
+  virtual_text = false,
+  float = {
+    source = "always",
+  },
+  severity_sort = true
+})

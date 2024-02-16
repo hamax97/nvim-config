@@ -1,16 +1,21 @@
-local options = {
-	lsp_fallback = true,
-
-	formatters_by_ft = {
+local opts = {
+  -- Define your formatters
+  formatters_by_ft = {
     ruby = { "rubocop" },
-		lua = { "stylua" },
+    lua = { "stylua" },
 
-		javascript = { "prettier" },
-		css = { "prettier" },
-		html = { "prettier" },
+    javascript = { "prettier" },
+    css = { "prettier" },
+    html = { "prettier" },
 
-		sh = { "shfmt" },
-	},
+    sh = { "shfmt" },
+  },
+  -- Customize formatters
+  formatters = {
+    rubocop = {
+      prepend_args = { "-a" }
+    }
+  },
 }
 
-require("conform").setup(options)
+return opts
