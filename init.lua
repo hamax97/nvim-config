@@ -15,10 +15,22 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Plugins.
-local plugins = require("plugins")
+local plugins = require("my.plugins")
 local lazy_opts = {}
 
 require("lazy").setup(plugins, lazy_opts)
 
+-- LSP.
+require("my.lsp")
+
 -- Keymaps.
-require("keymaps")
+require("my.keymaps")
+
+-- Options.
+require("my.options")
+
+-- Themes.
+require("my.colors")
+
+-- TODOs:
+-- How to disable the lua-ls diagnostic for the vim global?
