@@ -34,3 +34,6 @@ require("my.colors")
 
 -- TODOs:
 -- How to disable the lua-ls diagnostic for the vim global?
+-- Use gitsigns.
+--   How to undo a specific hunk?
+-- Use spaces instead of tabs?

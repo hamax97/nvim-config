@@ -27,7 +27,7 @@ return {
         },
         sorting_strategy = "ascending",
         path_display = { "shorten" }, -- this can be configured further, or set to a function.
-        -- file_ignore_patterns = {} -- files here will not appear even in the lsp_ pickers.
+        file_ignore_patterns = { "tmp" } -- files here will not appear even in the lsp_ pickers.
       }
     },
     lazy = false
@@ -68,5 +68,10 @@ return {
         lualine_x = { "filetype" }
       },
     }
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    event = "BufEnter",
+    opts = require("my.plugins.gitsigns")
   }
 }

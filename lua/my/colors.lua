@@ -10,3 +10,5 @@ vim.cmd.colorscheme "catppuccin-latte"
 
 -- TODOs:
 -- Install a theme picker.
+-- Configure the line numbers to show more color on the selected line.
+-- Highlight the current line.
