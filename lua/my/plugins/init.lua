@@ -67,11 +67,23 @@ return {
       sections = {
         lualine_x = { "filetype" }
       },
+      -- custom_highlights = function(colors)
+      --   return {
+      --     CursorLine = {
+      --       bg = "#e5e5e5"
+      --     }
+      --   }
+      -- end
     }
   },
   {
     "lewis6991/gitsigns.nvim",
     event = "BufEnter",
     opts = require("my.plugins.gitsigns")
-  }
+  },
+  {
+    "numToStr/Comment.nvim",
+    lazy = false,
+    opts = {}
+  },
 }
