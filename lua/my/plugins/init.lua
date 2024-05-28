@@ -15,20 +15,30 @@ return {
       require("telescope").setup(opts)
       require("telescope").load_extension("fzf") -- more performant algorithm for searching.
     end,
-   opts = {
+    opts = {
       defaults = { -- see helptag telescope.layout
-	-- TODO: configure keymaps to scroll results left/right for long filenames.
-        layout_strategy = "horizontal",
+        -- layout_strategy = "horizontal",
+        -- layout_config = {
+        --   height = 0.7,
+        --   prompt_position = "top",
+        --   preview_width = 0.55,
+        --   scroll_speed = 3
+        -- },
+        layout_strategy = "vertical",
         layout_config = {
-                height = 0.7,
           prompt_position = "top",
-          preview_width = 0.55,
           scroll_speed = 3
         },
         sorting_strategy = "ascending",
         path_display = { "shorten" }, -- this can be configured further, or set to a function.
-        file_ignore_patterns = { "tmp" } -- files here will not appear even in the lsp_ pickers.
-      }
+        file_ignore_patterns = { "tmp" }, -- files here will not appear even in the lsp_ pickers.
+      },
+      -- pickers = {
+      --   lsp_definitions = {
+      --     layout_strategy = "vertical",
+      --     layout_config = {}
+      --   }
+      -- }
     },
     lazy = false
   },
@@ -86,4 +96,13 @@ return {
     lazy = false,
     opts = {}
   },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    -- TODO: configure this plugin:
+    --   show the whitespaces, tabs, eols (maybe)
+    --   In Ruby it doesn't detect properly the levels of indentation.
+    --   Any other plugin?
+    opts = {}
+  }
 }

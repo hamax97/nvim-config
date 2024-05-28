@@ -11,7 +11,7 @@ vim.cmd.colorscheme "catppuccin-latte"
 -- TODOs:
 -- Install a theme picker.
 -- Configure the line numbers to show more color on the selected line.
--- Highlight the current line.
+-- Custom highlight the current line.
 -- use plugin: indent-blankline.nvim for
 --   showing vertical lines of blocks
 --   showing tabs, trailing spaces, eols

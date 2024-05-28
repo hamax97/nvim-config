@@ -10,5 +10,7 @@ vim.o.relativenumber = true
 -- Others.
 vim.o.cursorline = true -- Highlight cursorline.
 vim.o.expandtab = true -- Use spaces instead of tabs.
--- TODO: make this only indent by two spaces.
+vim.o.tabstop = 2 -- Number of spaces per tab.
 vim.o.autoindent = true -- Indent operators (<, >) use spaces if expandtab is set.
+vim.o.shiftwidth = 2 -- Spaces to (auto)indent.
+vim.o.smartindent = true -- Syntax aware indent on new lines. TODO: How to make this work for Ruby?
