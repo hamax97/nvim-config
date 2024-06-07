@@ -62,6 +62,31 @@ return {
   },
   { "neovim/nvim-lspconfig", lazy = false },
   -- start of themes.
+  {
+    "zaldih/themery.nvim",
+    lazy = false,
+    opts = {
+      themes = { -- my list of installed themes.
+        {
+          name = "gruvbox dark",
+          colorscheme = "gruvbox",
+          before = [[
+            vim.opt.background = "dark"
+            require("lualine").setup({ options = { theme = "gruvbox" }})
+          ]]
+        },
+        {
+          name = "catppuccin latte",
+          colorscheme = "catppuccin-latte",
+          before = [[
+            require("lualine").setup({ options = { theme = "catppuccin" }})
+          ]]
+        }
+      },
+      themeConfigFile = "~/.config/mynvim/lua/my/colors/theme.lua",
+      livePreview = true
+    }
+  },
   { "ellisonleao/gruvbox.nvim", priority = 1000 },
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   -- end of themes.
@@ -70,9 +95,9 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
       options = {
-        theme = "catppuccin",
-        section_separators = { left = '', right = '' },
-        component_separators = { left = '', right = '' }
+        theme = "catppuccin", -- modified by Themery.
+        -- section_separators = { left = '', right = '' },
+        -- component_separators = { left = '', right = '' }
       },
       sections = {
         lualine_x = { "filetype" }
@@ -104,5 +129,6 @@ return {
     --   In Ruby it doesn't detect properly the levels of indentation.
     --   Any other plugin?
     opts = {}
-  }
+  },
+  -- TODO: try stevearc/oil.nvim as a File explorer.
 }
