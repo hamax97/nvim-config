@@ -15,3 +15,5 @@ vim.o.autoindent = true -- Indent operators (<, >) use spaces if expandtab is se
 vim.o.shiftwidth = 2 -- Spaces to (auto)indent.
 vim.o.smartindent = true -- Syntax aware indent on new lines. TODO: How to make this work for Ruby?
 vim.o.clipboard = "unnamed" -- Yank to clipboard too.
+vim.o.splitright = true -- New vertical splits will go to the right.
+vim.o.splitbelow = true -- New horizontal splits will go below.

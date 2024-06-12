@@ -130,5 +130,76 @@ return {
     --   Any other plugin?
     opts = {}
   },
+  -- start of completion.
+  {
+    "L3MON4D3/LuaSnip",
+    -- TODO: configure it?
+  },
+  {
+    -- TODO: make this work, why there's no completion?
+    -- continue here https://www.youtube.com/watch?v=_DnmphIwnjo on 13:30
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      { "L3MON4D3/LuaSnip" },
+      { "saadparwaiz1/cmp_luasnip" },
+      { "hrsh7th/cmp-buffer" },
+      { "hrsh7th/cmp-path" },
+      { "hrsh7th/cmp-nvim-lua" }, -- autocompletion source for lua in the context of nvim.
+      { "hrsh7th/cmp-nvim-lsp" },
+    },
+    event = "BufEnter",
+    config = function()
+      local cmp = require("cmp")
+      cmp.setup({
+        snippet = {
+          expand = function(args)
+            require("luasnip").lsp_expand(args.body)
+          end
+        },
+        mapping = {
+          ["<C-n>"] = cmp.mapping.select_next_item(),
+          ["<C-p>"] = cmp.mapping.select_prev_item(),
+          ["<C-u>"] = cmp.mapping.scroll_docs(-4),
+          ["<C-d>"] = cmp.mapping.scroll_docs(4),
+          ["<C-Space>"] = cmp.mapping.complete(),
+          ["<leader>c"] = cmp.mapping.abort(),
+          ["<CR>"] = cmp.mapping.confirm({ select = true })
+        },
+        sources = {
+          -- Notes:
+          -- the order of the sources gives priority (by default), you can also specify 'priority = #'
+          -- you can configure also:
+          --   keyword_length
+          --   priority
+          --   max_item_count
+          --   more?
+          --
+          -- To add aditional sources for specific filetypes:
+          --   autocmd FileType ruby lua require("cmp").setup.buffer {
+          --     sources = {
+          --       { name = "some_ruby_source" },
+          --     }
+          --   }
+          { name = "nvim_lua" },
+          { name = "nvim_lsp" },
+          { name = "nvim_path" },
+          { name = "luasnip" },
+          { name = "buffer", keyword_length = 5 },
+        },
+        -- TODO: Customize the menu: https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance
+        -- formatting = {
+        --   with_text = true,
+        --   menu = {
+        --     buffer = "[buf]",
+        --     nvim_lsp = "[LSP]",
+        --     nvim_lua = "[nvim]",
+        --     path = "[path]",
+        --     luasnip = "[snip]",
+        --   }
+        -- }
+      })
+    end
+  },
+  -- end of completion.
   -- TODO: try stevearc/oil.nvim as a File explorer.
 }
