@@ -162,7 +162,7 @@ return {
           ["<C-u>"] = cmp.mapping.scroll_docs(-4),
           ["<C-d>"] = cmp.mapping.scroll_docs(4),
           ["<C-Space>"] = cmp.mapping.complete(),
-          ["<leader>c"] = cmp.mapping.abort(),
+          ["<C-x>"] = cmp.mapping.abort(),
           ["<CR>"] = cmp.mapping.confirm({ select = true })
         },
         sources = {

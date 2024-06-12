@@ -1,7 +1,12 @@
 local lspconfig = require("lspconfig")
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-lspconfig.solargraph.setup {}
-lspconfig.lua_ls.setup {} -- https://github.com/LuaLS/lua-language-server
+lspconfig.solargraph.setup {
+  capabilities = capabilities
+}
+lspconfig.lua_ls.setup { -- https://github.com/LuaLS/lua-language-server
+  capabilities = capabilities
+}
 
 -- TODO: read this on diagnostics: https://smarttech101.com/nvim-lsp-diagnostics-keybindings-signs-virtual-texts/
 
