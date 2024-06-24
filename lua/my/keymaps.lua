@@ -3,14 +3,18 @@
 
 -- Telescope.
 local telescope = require("telescope.builtin")
+local telescope_extensions = require("telescope").extensions
+
 vim.keymap.set('n', '<leader>fs', telescope.treesitter, { desc = "Find symbols (function names and variables) in file" })
 vim.keymap.set('n', '<leader>ff', telescope.find_files, { desc = "Find files" })
-vim.keymap.set('n', '<leader>sg', telescope.live_grep, { desc = "Search with grep" })
+-- vim.keymap.set('n', '<leader>sg', telescope.live_grep, { desc = "[Telescope] Search with grep" })
+vim.keymap.set('n', '<leader>sg', telescope_extensions.live_grep_args.live_grep_args, { desc = "[Telescope] Search with grep and optionally pass args to ripgrep" })
 vim.keymap.set('n', '<leader>sw', telescope.grep_string, { desc = "Search for word/selection under cursor with grep" })
 vim.keymap.set('n', '<leader>sb', telescope.current_buffer_fuzzy_find, { desc = "Find in current buffer" })
 vim.keymap.set('n', '<leader>th', telescope.colorscheme, { desc = "Change colorschemes" })
 vim.keymap.set('n', '<leader>vo', telescope.vim_options, { desc = "Find vim options" })
 vim.keymap.set('n', '<leader>ht', telescope.help_tags, { desc = "Find help tags" })
+vim.keymap.set('n', '<leader>tr', telescope.resume, { desc = "[Telescope] Resume last picker" })
 
 -- TODO: make this keymap work
 -- vim.keymap.set('n', '<C-k>', require("telescope.actions").preview_scrolling_right, { desc = "[Telescope] Scroll right preview" })

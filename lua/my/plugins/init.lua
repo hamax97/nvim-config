@@ -1,47 +1,5 @@
 return {
-  {
-    -- To check it's working: :checkhealth telescope
-    "nvim-telescope/telescope.nvim",
-    branch = "0.1.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-      { "nvim-treesitter/nvim-treesitter" },
-      -- other deps (non-nvim):
-      -- finder: shardpd/fd
-      -- BurntSushi/ripgrep
-    },
-    conf = function(_, opts)
-      require("telescope").setup(opts)
-      require("telescope").load_extension("fzf") -- more performant algorithm for searching.
-    end,
-    opts = {
-      defaults = { -- see helptag telescope.layout
-        -- layout_strategy = "horizontal",
-        -- layout_config = {
-        --   height = 0.7,
-        --   prompt_position = "top",
-        --   preview_width = 0.55,
-        --   scroll_speed = 3
-        -- },
-        layout_strategy = "vertical",
-        layout_config = {
-          prompt_position = "top",
-          scroll_speed = 3
-        },
-        sorting_strategy = "ascending",
-        path_display = { "shorten" }, -- this can be configured further, or set to a function.
-        file_ignore_patterns = { "tmp" }, -- files here will not appear even in the lsp_ pickers.
-      },
-      -- pickers = {
-      --   lsp_definitions = {
-      --     layout_strategy = "vertical",
-      --     layout_config = {}
-      --   }
-      -- }
-    },
-    lazy = false
-  },
+  require("my.plugins.telescope"),
   {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {

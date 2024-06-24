@@ -18,6 +18,7 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = require("my.plugins")
 local lazy_opts = {}
 
+-- TODO: learn how to split plugins in multiple modules easily: https://lazy.folke.io/usage/structuring
 require("lazy").setup(plugins, lazy_opts)
 
 -- LSP.
