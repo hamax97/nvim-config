@@ -2,6 +2,7 @@ return {
   -- To check it's working: :checkhealth telescope
   "nvim-telescope/telescope.nvim",
   branch = "0.1.x",
+  lazy = false,
   dependencies = {
     "nvim-lua/plenary.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
@@ -16,7 +17,7 @@ return {
     -- finder: shardpd/fd
     -- BurntSushi/ripgrep
   },
-  conf = function()
+  config = function()
     local telescope = require("telescope")
     local lga_actions = require("telescope-live-grep-args.actions")
 
@@ -42,8 +43,7 @@ return {
         live_grep_args = {
           mappings = {
             i = {
-              -- TODO: make this mapping work, the C-k won't do anything on the prompt.
-              -- ["<C-k>"] = lga_actions.quote_prompt({ postfix = " -t " }),
+              ["<C-k>"] = lga_actions.quote_prompt({ postfix = " -t " }),
             },
           }
         },
@@ -54,7 +54,6 @@ return {
       --     layout_config = {}
       --   }
       -- }
-      lazy = false
     })
 
     require("telescope").load_extension("fzf") -- more performant algorithm for searching.
