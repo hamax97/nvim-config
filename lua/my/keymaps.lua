@@ -25,7 +25,8 @@ vim.keymap.set('n', '<leader>gs', telescope.git_status, { desc = "Git status" })
 vim.keymap.set('n', '<leader>gj', telescope.git_stash, { desc = "Git stash" })
 
 -- Toggle line numbers.
-vim.keymap.set('n', '<leader>rn', telescope.git_stash, { desc = "Git stash" })
+-- TODO: fix this keymap.
+-- vim.keymap.set('n', '<leader>rn', telescope.git_stash, { desc = "Git stash" })
 
 -- Buffers.
 vim.keymap.set("n", "<C-P>", "<cmd>bp<cr>", { desc = "[cmd] Previous buffer" })
@@ -35,3 +36,4 @@ vim.keymap.set("n", "<leader>cf", telescope.buffers, { desc = "[Telescope] Find 
 
 -- Utils.
 vim.keymap.set("n", "<leader>nk", "<cmd>lua require('plenary.reload').reload_module('my.keymaps')<cr>", { desc = "[Plenary] Reload keymaps" })
+vim.keymap.set("n", "<leader>ts", "<cmd>%s/\\s\\+$//e<cr>", { desc = "[cmd] Delete trailing whitespaces" })

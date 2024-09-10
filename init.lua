@@ -1,3 +1,5 @@
+---@diagnostic disable: undefined-global
+
 vim.g.mapleader = " "
 
 -- Setup Lazy plugin manager.
@@ -14,6 +16,9 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Options.
+require("my.options")
+
 -- Plugins.
 local plugins = require("my.plugins")
 local lazy_opts = {}
@@ -27,11 +32,8 @@ require("my.lsp")
 -- Keymaps.
 require("my.keymaps")
 
--- Options.
-require("my.options")
-
 -- Themes.
 require("my.colors")
 
--- TODOs:
--- How to disable the lua-ls diagnostic for the vim global?
+-- Autocommands.
+require("my.autocommands")

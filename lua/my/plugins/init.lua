@@ -158,6 +158,50 @@ return {
       })
     end
   },
+  {
+    "zbirenbaum/copilot.lua",
+    event = "BufEnter",
+    config = function()
+      require("copilot").setup({
+        panel = {
+          auto_refresh = true,
+          layout = {
+            position = "bottom",
+            ratio = 0.3
+          }
+        },
+        suggestion = {
+          auto_trigger = true,
+          keymap = {
+            accept = "<M-L>",
+            accept_word = "<M-l>",
+            accept_line = "<M-j>",
+            next = "<M-]>",
+            prev = "<M-[>",
+            dismiss = "<C-]>",
+          },
+        }
+      })
+    end,
+  },
   -- end of completion.
+  {
+    -- Smooth scrolling.
+    "karb94/neoscroll.nvim",
+    config = function ()
+      require("neoscroll").setup({})
+    end,
+  },
+  {
+    "akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons",
+    config = function ()
+      require("bufferline").setup({
+        options = {
+          truncate_names = false
+        }
+      })
+    end
+  },
+  require("my.plugins.copilotchat"),
   -- TODO: try stevearc/oil.nvim as a File explorer.
 }
