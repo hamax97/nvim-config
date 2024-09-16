@@ -33,10 +33,12 @@ return {
         layout_strategy = "vertical",
         layout_config = {
           prompt_position = "top",
-          scroll_speed = 3
+          scroll_speed = 3,
+          preview_height = 0.6,
+          preview_cutoff = 0 -- always show preview, even in smaller screens.
         },
         sorting_strategy = "ascending",
-        path_display = { "shorten" }, -- this can be configured further, or set to a function.
+        path_display = { "truncate" }, -- this can be configured further, or set to a function.
         file_ignore_patterns = { "tmp" }, -- files here will not appear even in the lsp_ pickers.
       },
       extensions = {

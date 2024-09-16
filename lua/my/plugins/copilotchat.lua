@@ -23,7 +23,7 @@ return {
       { "<leader>cce", "<cmd>CopilotChatExplain<cr>", desc = "[CopilotChat] Explain code" },
       { "<leader>ccT", "<cmd>CopilotChatTests<cr>", desc = "[CopilotChat] Generate tests" },
       {
-        "<leader>cc",
+        "<leader>co",
         "<cmd>CopilotChatToggle<cr>",
         desc = "[CopilotChat] Toggle chat window",
       },

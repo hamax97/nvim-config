@@ -34,6 +34,15 @@ vim.keymap.set("n", "<C-N>", "<cmd>bn<cr>", { desc = "[cmd] Next buffer" })
 vim.keymap.set("n", "<leader>x", "<cmd>bdelete<cr>", { desc = "[cmd] Delete buffer" })
 vim.keymap.set("n", "<leader>cf", telescope.buffers, { desc = "[Telescope] Find buffers (change files)" })
 
+-- Splits.
+-- Move between splits using Ctrl + j/k/l/h
+vim.keymap.set({"n", "v", "x"}, "<C-j>", "<C-w>j", { noremap = true, silent = true })
+vim.keymap.set({"n", "v", "x"}, "<C-k>", "<C-w>k", { noremap = true, silent = true })
+vim.keymap.set({"n", "v", "x"}, "<C-h>", "<C-w>h", { noremap = true, silent = true })
+vim.keymap.set({"n", "v", "x"}, "<C-l>", "<C-w>l", { noremap = true, silent = true })
+
 -- Utils.
 vim.keymap.set("n", "<leader>nk", "<cmd>lua require('plenary.reload').reload_module('my.keymaps')<cr>", { desc = "[Plenary] Reload keymaps" })
 vim.keymap.set("n", "<leader>ts", "<cmd>%s/\\s\\+$//e<cr>", { desc = "[cmd] Delete trailing whitespaces" })
+-- Clear highlights from search.
+vim.keymap.set("n", "<esc>", ":nohlsearch<CR>", { silent = true })
