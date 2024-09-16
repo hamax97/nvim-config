@@ -203,5 +203,13 @@ return {
     end
   },
   require("my.plugins.copilotchat"),
+  {
+    -- Used to maximize split panes in and out.
+    "szw/vim-maximizer",
+    event = "BufEnter",
+    config = function ()
+      vim.api.nvim_set_keymap("n", "<leader>m", ":MaximizerToggle<CR>", { noremap = true, silent = true })
+    end
+  }
   -- TODO: try stevearc/oil.nvim as a File explorer.
 }
