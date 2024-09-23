@@ -23,4 +23,4 @@ vim.o.smartindent = true -- Syntax aware indent on new lines. TODO: How to make 
 vim.o.clipboard = "unnamed" -- Yank to clipboard too.
 vim.o.splitright = true -- New vertical splits will go to the right.
 vim.o.splitbelow = true -- New horizontal splits will go below.
-vim.o.scrolloff = 5 -- Keep the cursor X lines below/above the first/last line of the screen.
+vim.o.scrolloff = 15 -- Keep the cursor X lines below/above the first/last line of the screen.

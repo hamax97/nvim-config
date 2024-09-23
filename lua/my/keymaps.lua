@@ -40,6 +40,8 @@ vim.keymap.set({"n", "v", "x"}, "<C-j>", "<C-w>j", { noremap = true, silent = tr
 vim.keymap.set({"n", "v", "x"}, "<C-k>", "<C-w>k", { noremap = true, silent = true })
 vim.keymap.set({"n", "v", "x"}, "<C-h>", "<C-w>h", { noremap = true, silent = true })
 vim.keymap.set({"n", "v", "x"}, "<C-l>", "<C-w>l", { noremap = true, silent = true })
+-- [vim-maximizer] Maximize in/out current split.
+vim.keymap.set({ "n", "v", "x" }, "<leader>m", ":MaximizerToggle<CR>", { noremap = true, silent = true })
 
 -- Utils.
 vim.keymap.set("n", "<leader>nk", "<cmd>lua require('plenary.reload').reload_module('my.keymaps')<cr>", { desc = "[Plenary] Reload keymaps" })
