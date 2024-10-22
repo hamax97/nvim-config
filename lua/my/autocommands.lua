@@ -2,9 +2,22 @@
 vim.api.nvim_exec([[
   augroup ToggleRelativeNumbers
     autocmd!
-    " Turn on relative line numbers when entering a window
-    autocmd WinEnter * set relativenumber
-    " Turn off relative line numbers (use absolute) when leaving a window
-    autocmd WinLeave * set norelativenumber
+    " Turn on relative line numbers when entering a window, except for certain filetypes
+    autocmd WinEnter * if &filetype !~# 'Avante\|AvanteInput\|TelescopePrompt' | set relativenumber | endif
+    " Turn off relative line numbers when leaving a window, except for certain filetypes
+    autocmd WinLeave * if &filetype !~# 'Avante\|AvanteInput\|TelescopePrompt' | set norelativenumber | endif
+    " Turn on relative line numbers when Neovim gains focus, except for certain filetypes
+    autocmd FocusGained * if &filetype !~# 'Avante\|AvanteInput\|TelescopePrompt' | set relativenumber | endif
+    " Turn off relative line numbers when Neovim loses focus, except for certain filetypes
+    autocmd FocusLost * if &filetype !~# 'Avante\|AvanteInput\|TelescopePrompt' | set norelativenumber | endif
   augroup END
 ]], false)
+
+-- Disable linenumbers in Telescope.
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "TelescopePrompt",
+  callback = function()
+    vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
+  end,
+})

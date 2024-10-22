@@ -37,3 +37,6 @@ require("my.colors")
 
 -- Autocommands.
 require("my.autocommands")
+
+-- After plugins and editor load.
+require("my.after")

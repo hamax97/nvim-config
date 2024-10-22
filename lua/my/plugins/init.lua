@@ -203,10 +203,12 @@ return {
     end
   },
   require("my.plugins.copilotchat"),
+  require("my.plugins.avante"),
   {
     -- Used to maximize split panes in and out.
     "szw/vim-maximizer",
     event = "BufEnter",
-  }
+  },
+  require("my.plugins.treesitter-textobjects"),
   -- TODO: try stevearc/oil.nvim as a File explorer.
 }
