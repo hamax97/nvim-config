@@ -11,7 +11,7 @@ vim.o.relativenumber = true
 vim.opt.termguicolors = true
 
 -- For CopilotChat.
-vim.g.python3_host_prog = "/opt/homebrew/bin/python3"
+-- vim.g.python3_host_prog = "/opt/homebrew/bin/python3"
 
 -- For avante.
 -- views can only be fully collapsed with the global statusline

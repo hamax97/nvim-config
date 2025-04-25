@@ -41,6 +41,7 @@ return {
           ]]
         }
       },
+      -- TODO: themeConfigFile was deprecated, not needed anymore?
       themeConfigFile = "~/.config/mynvim/lua/my/colors/theme.lua",
       livePreview = true
     }
@@ -195,6 +196,7 @@ return {
   {
     "akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons",
     config = function ()
+      vim.opt.termguicolors = true
       require("bufferline").setup({
         options = {
           truncate_names = false
@@ -202,7 +204,7 @@ return {
       })
     end
   },
-  require("my.plugins.copilotchat"),
+  -- require("my.plugins.copilotchat"),
   require("my.plugins.avante"),
   {
     -- Used to maximize split panes in and out.
@@ -210,5 +212,6 @@ return {
     event = "BufEnter",
   },
   require("my.plugins.treesitter-textobjects"),
+  require("my.plugins.whichkey"),
   -- TODO: try stevearc/oil.nvim as a File explorer.
 }
